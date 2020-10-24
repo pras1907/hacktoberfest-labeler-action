@@ -79,14 +79,14 @@ def get_or_create_label(
         )
     return label_to_add
 
-
+#function to add label
 def add_label(repo: Repository, filter_label_names: List[str], label_to_add: Label):
     """Add given label to all issues labeled with filter label."""
     issues_list = repo.get_issues(state="open", labels=filter_label_names)
     for issue in issues_list:
         issue.add_to_labels(label_to_add)
 
-
+#function to add a topic
 def add_topic(repo: Repository):
     """Add hacktoberfest topic to the repo."""
     topics_list = repo.get_topics()
